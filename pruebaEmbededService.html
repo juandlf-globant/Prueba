@@ -1,74 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-<body>
+  <body>
     Prueba de chat.
-<style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #005290;
-		font-family: "Arial", sans-serif;
-	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #005290;
-	}
-</style>
 
-<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-<script type='text/javascript'>
-	var initESW = function(gslbBaseURL) {
-		embedded_svc.settings.displayHelpButton = true; //O falso
-		embedded_svc.settings.language = ''; //Por ejemplo, introduzca 'en' o 'en-US'
+    <input id="clickMe" type="button" value="clickme" />
 
-		//embedded_svc.settings.defaultMinimizedText = '...'; //(Toma como valor predeterminado Sesión de chat con un experto)
-		//embedded_svc.settings.disabledMinimizedText = '...'; //(Toma como valor predeterminado Agente sin conexión)
+    <style type="text/css">
+      .embeddedServiceHelpButton .helpButton .uiButton {
+        background-color: #005290;
+        font-family: "Arial", sans-serif;
+      }
+      .embeddedServiceHelpButton .helpButton .uiButton:focus {
+        outline: 1px solid #005290;
+      }
+    </style>
 
-		//embedded_svc.settings.loadingText = ''; //(Toma como valor predeterminado Cargando)
-		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Establece el dominio para su desarrollo de modo que los visitantes puedan navegar por subdominios durante una sesión de chat)
+    <script
+      type="text/javascript"
+      src="https://service.force.com/embeddedservice/5.0/esw.min.js"
+    ></script>
+    <script type="text/javascript">
+      document.getElementById("clickMe").onclick = function () {
+        alert("hello!");
+      };
 
-		// Configuración para Chat
-		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-			// Returns a valid button ID.
-		//};
-		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Establece la cumplimentación automática de los campos del formulario previo al chat
-		//embedded_svc.settings.fallbackRouting = []; //Una matriz de identificadores de botones, de usuario o userId_buttonId
-		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Toma como valor predeterminado la opción Contacto)
+      var initESW = function (gslbBaseURL) {
+        embedded_svc.settings.displayHelpButton = true;
+        embedded_svc.settings.language = "";
 
-		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-		embedded_svc.settings.entryFeature = 'LiveAgent';
+        embedded_svc.settings.enabledFeatures = ["LiveAgent"];
+        embedded_svc.settings.entryFeature = "LiveAgent";
 
-		embedded_svc.init(
-			'https://santander-ar--uat.my.salesforce.com',
-			'https://uat-santader-ar.cs196.force.com/liveAgentSetupFlow',
-			gslbBaseURL,
-			'00D030000008l2b',
-			'ChatMora',
-			{
-				baseLiveAgentContentURL: 'https://c.la2-c1cs-ia4.salesforceliveagent.com/content',
-				deploymentId: '572050000004CEv',
-				buttonId: '573050000004CFo',
-				baseLiveAgentURL: 'https://d.la2-c1cs-ia4.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'ChatMora',
-				isOfflineSupportEnabled: false
-			}
-		);
-	};
+        embedded_svc.init(
+          "https://santander-ar--uat.my.salesforce.com",
+          "https://uat-santader-ar.cs196.force.com/liveAgentSetupFlow",
+          gslbBaseURL,
+          "00D030000008l2b",
+          "ChatMora",
+          {
+            baseLiveAgentContentURL:
+              "https://c.la2-c1cs-ia4.salesforceliveagent.com/content",
+            deploymentId: "572050000004CEv",
+            buttonId: "573050000004CFo",
+            baseLiveAgentURL:
+              "https://d.la2-c1cs-ia4.salesforceliveagent.com/chat",
+            eswLiveAgentDevName: "ChatMora",
+            isOfflineSupportEnabled: false
+          }
+        );
+      };
 
-	if (!window.embedded_svc) {
-		var s = document.createElement('script');
-		s.setAttribute('src', 'https://santander-ar--uat.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-		s.onload = function() {
-			initESW(null);
-		};
-		document.body.appendChild(s);
-	} else {
-		initESW('https://service.force.com');
-	}
-</script>
-</body>
+      if (!window.embedded_svc) {
+        var s = document.createElement("script");
+        s.setAttribute(
+          "src",
+          "https://santander-ar--uat.my.salesforce.com/embeddedservice/5.0/esw.min.js"
+        );
+        s.onload = function () {
+          initESW(null);
+        };
+        document.body.appendChild(s);
+      } else {
+        initESW("https://service.force.com");
+      }
+    </script>
+  </body>
 </html>
