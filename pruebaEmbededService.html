@@ -7,68 +7,9 @@
   </head>
 
   <body>
-    Prueba de chat.
-
-    <input id="clickMe" type="button" value="clickme" />
-
-    <style type="text/css">
-      .embeddedServiceHelpButton .helpButton .uiButton {
-        background-color: #005290;
-        font-family: "Arial", sans-serif;
-      }
-      .embeddedServiceHelpButton .helpButton .uiButton:focus {
-        outline: 1px solid #005290;
-      }
-    </style>
-
-    <script
-      type="text/javascript"
-      src="https://service.force.com/embeddedservice/5.0/esw.min.js"
-    ></script>
-    <script type="text/javascript">
-      document.getElementById("clickMe").onclick = function () {
-        alert("hello!");
-      };
-
-      var initESW = function (gslbBaseURL) {
-        embedded_svc.settings.displayHelpButton = true;
-        embedded_svc.settings.language = "";
-
-        embedded_svc.settings.enabledFeatures = ["LiveAgent"];
-        embedded_svc.settings.entryFeature = "LiveAgent";
-
-        embedded_svc.init(
-          "https://santander-ar--uat.my.salesforce.com",
-          "https://uat-santader-ar.cs196.force.com/liveAgentSetupFlow",
-          gslbBaseURL,
-          "00D030000008l2b",
-          "ChatMora",
-          {
-            baseLiveAgentContentURL:
-              "https://c.la2-c1cs-ia4.salesforceliveagent.com/content",
-            deploymentId: "572050000004CEv",
-            buttonId: "573050000004CFo",
-            baseLiveAgentURL:
-              "https://d.la2-c1cs-ia4.salesforceliveagent.com/chat",
-            eswLiveAgentDevName: "ChatMora",
-            isOfflineSupportEnabled: false
-          }
-        );
-      };
-
-      if (!window.embedded_svc) {
-        var s = document.createElement("script");
-        s.setAttribute(
-          "src",
-          "https://santander-ar--uat.my.salesforce.com/embeddedservice/5.0/esw.min.js"
-        );
-        s.onload = function () {
-          initESW(null);
-        };
-        document.body.appendChild(s);
-      } else {
-        initESW("https://service.force.com");
-      }
-    </script>
+   <script type='text/javascript' src='https://c.la2-c1cs-ia4.salesforceliveagent.com/content/g/js/53.0/deployment.js'></script>
+<script type='text/javascript'>
+liveagent.init('https://d.la2-c1cs-ia4.salesforceliveagent.com/chat', '572050000004CEv', '00D050000008onD');
+</script>
   </body>
 </html>
